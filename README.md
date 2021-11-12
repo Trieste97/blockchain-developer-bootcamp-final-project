@@ -1,10 +1,10 @@
 # blockchain-developer-bootcamp-final-project
 Final project for the Consensys blockchain developer bootcamp
 
-The idea is to build a simple DApp that lets users put certain tokens in various pools, making them earn DApp token rewards periodically.
+The idea is to build a simple DApp that lets users put certain tokens in a pool, making them earn DApp token rewards periodically.
 The DApp contains three main sections:
   1. Faucet: where the user can request tokens;
-  2. Swapper: where the user can transform the faucet tokens into deposit tokens;
+  2. Swapper: where the user can transform the faucet tokens into pool tokens;
   3. Deposit: where the user can deposit the pool tokens, earning periodically the DApp token;
 
 A simple use case (let's call the user Bob):
@@ -21,14 +21,14 @@ The faucet tokens policies are both static: there's a max supply set to mint, on
 
 # 2. Swapper
 In the swapper section there are two possibilities:
-- swapping faucet tokens (tokenA and tokenB) for deposit tokens (tokenAB): the contract will take the faucet tokens and mint the same amount of tokenAB;
+- swapping faucet tokens (tokenA and tokenB) for pool tokens (tokenAB): the contract will take the faucet tokens and mint the same amount of tokenAB;
 - swapping deposit tokens (tokenAB) for the same amount of tokenA/tokenB: the contract will burn the amount of tokenAB and give back the tokenA/tokenB pair;
 In both cases a transaction is required from the user. Example: Bob has 100 tokenA and 100 tokenB and he swaps them for 100 tokenAB.
 
 
 # 3. Deposit
-The deposit section allows giving tokenAB to the contract to earn tokenNat as rewards. The idea is to reward a total of 1 tokenNat (inflationary token) per block minted since the deposit. The reward is split among the parties that deposited in the pool. If there're no deposits in a certain period of time, no tokenNat are minted in that period. Example:
-  - Alice deposits 100 tokenAB in the pool, at block 100; She's the only party at the moment so she will earn 100% of tokenNat minted (1 per block);
-  - Bob deposits 100 tokenAB in the pool, at block 200; Both Alice and Bob own 50% of the share of the pool, so from now on they'll earn 0.5 tokenNat per block;
-  - Alice withdraws all the tokens from the pool, at block 300. She earned a total of 150 tokenNat;
-The withdraw function will both withdraw the amount of tokenAB requested and claim all the tokenNat rewards too.
+The deposit section allows giving tokenAB to the contract to earn tokenNat as rewards. The idea is to reward a total of 1 tokenNat (inflationary token) every 100 tokenAB deposited, per block minted since the deposit. If there're no deposits in a certain period of time, no tokenNat are minted in that period. Example:
+  - Alice deposits 100 tokenAB in the pool, at block 100;
+  - Bob deposits 100 tokenAB in the pool, at block 200;
+  - Alice withdraws all the tokens from the pool, at block 300. She earned a total of 200 tokenNat;
+This section also allow users to claim the tokenNat earned until then.
