@@ -61,7 +61,7 @@ contract DjangoApp {
     }
 
     // Or viceversa
-    function swapPoolTokensForFaucetTokens(uint amountTokenB_) external {
+    function swapDepositTokensForFaucetTokens(uint amountTokenB_) external {
         tokenB.burnFrom(msg.sender, amountTokenB_);
         tokenA.transfer(msg.sender, amountTokenB_);
     }
@@ -84,7 +84,7 @@ contract DjangoApp {
     }
 
     // Deposit: takes the deposit tokens and keeps track of them
-    function deposit(uint amount_)  external {
+    function deposit(uint amount_) external {
         tokenB.transferFrom(msg.sender, address(this), amount_);
 
         updateDjangoEarned(msg.sender, this.getDjangoEarned(msg.sender));
@@ -94,7 +94,7 @@ contract DjangoApp {
     }
 
     // Withdraw: gives back the amount of pool tokens requested back
-    function withdraw(uint amount_)  external {
+    function withdraw(uint amount_) external {
         require(depositedTokenBalances[msg.sender] >= amount_, "Not enough deposited tokens");
 
         updateDjangoEarned(msg.sender, this.getDjangoEarned(msg.sender));
@@ -114,5 +114,10 @@ contract DjangoApp {
         tokenDjango.mint(msg.sender, djangoEarned);
 
         emit Claim(msg.sender, djangoEarned);
+    }
+
+    // Getter function for the deposited tokenB
+    function depositedTokens(address _account) external view returns (uint256) {
+        return depositedTokenBalances[_account];
     }
 }
