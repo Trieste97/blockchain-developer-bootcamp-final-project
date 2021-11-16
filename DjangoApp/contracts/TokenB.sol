@@ -4,10 +4,10 @@ pragma solidity ^0.8.2;
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract TokenPool is ERC20Burnable, AccessControl {
+contract TokenB is ERC20Burnable, AccessControl {
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-    constructor(string memory name, string memory symbol) ERC20(name, symbol) {
+    constructor() ERC20("TokenB", "TKB") {
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _setupRole(MINTER_ROLE, msg.sender);
     }

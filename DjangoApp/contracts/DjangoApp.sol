@@ -1,20 +1,20 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.2;
 
-import "./TokenFaucet.sol";
-import "./TokenPool.sol";
+import "./TokenA.sol";
+import "./TokenB.sol";
 import "./TokenDjango.sol";
 
 contract DjangoApp {
     // Constants
-    uint REWARD_PER_BLOCK = 1;
-    uint FAUCET_AMOUNT = 100;
-    // Faucet tokens
-    TokenFaucet public tokenA;
-    TokenFaucet public tokenB;
+    uint public REWARD_PER_BLOCK = 1;
+    uint public FAUCET_AMOUNT = 100;
 
-    // Pool token
-    TokenPool public tokenAB;
+    // Faucet token
+    TokenA public tokenA;
+
+    // Depposit token
+    TokenB public tokenB;
 
     // DApp native token (reward)
     TokenDjango public tokenDjango;
@@ -31,11 +31,14 @@ contract DjangoApp {
     // Last block update per address
     mapping(address => uint256) private lastBlockUpdate;
 
+    event FaucetUsed(address indexed to, uint timestamp);
+    event Deposit(address indexed from, uint amount);
+    event Withdraw(address indexed from, uint amount);
+    event Claim(address indexed from, uint amount);
 
-    constructor(address _tokenA, address _tokenB, address _tokenAB, address _tokenDjango) {
-        tokenA = TokenFaucet(_tokenA);
-        tokenB = TokenFaucet(_tokenB);
-        tokenAB = TokenPool(_tokenAB);
+    constructor(address _tokenA, address _tokenB, address _tokenDjango) {
+        tokenA = TokenA(_tokenA);
+        tokenB = TokenB(_tokenB);
         tokenDjango = TokenDjango(_tokenDjango);
     }
 
@@ -47,28 +50,22 @@ contract DjangoApp {
         lastTimeFaucet[msg.sender] = block.timestamp;
         
         tokenA.mint(msg.sender, FAUCET_AMOUNT * 10 ** tokenA.decimals());
-        tokenB.mint(msg.sender, FAUCET_AMOUNT * 10 ** tokenB.decimals());
+
+        emit FaucetUsed(msg.sender, block.timestamp);
     }
 
     // Swapper section: receives faucet tokens and mints pool tokens (ratio 1:1)
-    function swapFaucetTokensForPoolTokens(uint amountTokenA_, uint amountTokenB_) external {
-        // Amounts of tokens have to be the same, swap is always 1:1 ratio
-        require(amountTokenA_ == amountTokenB_);
-
+    function swapFaucetTokensForDepositTokens(uint amountTokenA_) external {
         tokenA.transferFrom(msg.sender, address(this), amountTokenA_);
-        tokenB.transferFrom(msg.sender, address(this), amountTokenB_);
-        tokenAB.mint(msg.sender, amountTokenA_);
+        tokenB.mint(msg.sender, amountTokenA_);
     }
 
     // Or viceversa
-    function swapPoolTokensForFaucetTokens(uint amountTokenAB_) external {
-        tokenAB.burnFrom(msg.sender, amountTokenAB_);
-
-        tokenA.transfer(msg.sender, amountTokenAB_);
-        tokenB.transfer(address(this), amountTokenAB_);
+    function swapPoolTokensForFaucetTokens(uint amountTokenB_) external {
+        tokenB.burnFrom(msg.sender, amountTokenB_);
+        tokenA.transfer(msg.sender, amountTokenB_);
     }
 
-    // 
     function calculateDjangoEarned(address account_) internal view returns (uint) {
         uint deposited = depositedTokenBalances[account_];
         uint lastBlock = lastBlockUpdate[account_];
@@ -86,12 +83,14 @@ contract DjangoApp {
         return earnedDjangoBalances[account_] + calculateDjangoEarned(account_);
     }
 
-    // Deposit: takes the pool tokens and keeps track of them
+    // Deposit: takes the deposit tokens and keeps track of them
     function deposit(uint amount_)  external {
-        tokenAB.transferFrom(msg.sender, address(this), amount_);
+        tokenB.transferFrom(msg.sender, address(this), amount_);
 
         updateDjangoEarned(msg.sender, this.getDjangoEarned(msg.sender));
         depositedTokenBalances[msg.sender] += amount_;
+
+        emit Deposit(msg.sender, amount_);
     }
 
     // Withdraw: gives back the amount of pool tokens requested back
@@ -101,7 +100,9 @@ contract DjangoApp {
         updateDjangoEarned(msg.sender, this.getDjangoEarned(msg.sender));
         depositedTokenBalances[msg.sender] -= amount_;
 
-        tokenAB.transfer(msg.sender, amount_);
+        tokenB.transfer(msg.sender, amount_);
+
+        emit Withdraw(msg.sender, amount_);
     }
 
     // Claim: it transfer all the earned djangos to the requester
@@ -110,6 +111,8 @@ contract DjangoApp {
 
         updateDjangoEarned(msg.sender, 0);
 
-        tokenDjango.mint(msg.sender, djangoEarned);     
+        tokenDjango.mint(msg.sender, djangoEarned);
+
+        emit Claim(msg.sender, djangoEarned);
     }
 }
