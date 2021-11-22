@@ -109,7 +109,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -122,7 +123,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -135,7 +137,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -148,7 +151,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -161,7 +165,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -213,7 +218,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -265,7 +271,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.2+commit.661d1103\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenB\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_tokenDjango\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Claim\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"FaucetUsed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"FAUCET_AMOUNT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"REWARD_PER_BLOCK\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_account\",\"type\":\"address\"}],\"name\":\"depositedTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account_\",\"type\":\"address\"}],\"name\":\"getDjangoEarned\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountTokenB_\",\"type\":\"uint256\"}],\"name\":\"swapDepositTokensForFaucetTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountTokenA_\",\"type\":\"uint256\"}],\"name\":\"swapFaucetTokensForDepositTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenA\",\"outputs\":[{\"internalType\":\"contract TokenA\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenB\",\"outputs\":[{\"internalType\":\"contract TokenB\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenDjango\",\"outputs\":[{\"internalType\":\"contract TokenDjango\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"useFaucet\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/DjangoApp.sol\":\"DjangoApp\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x183481af1c40d2efb26b86f63d6fe9e22f24c87e436d60a69f261b38500e7cd6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f562746c399ae045994a88b2218d1238a349de07afbfb305aab0c7fdbc2954cc\",\"dweb:/ipfs/QmYoFrDD2c6fi9CpPz1bjCMAyketjZ3G7ByUSVQMntysms\"]},\"@openzeppelin/contracts/access/IAccessControl.sol\":{\"keccak256\":\"0xfe0edb09653ed10e8a1bfe03eb9b0ff06775666eee817a95bd3d0799f1ee2b44\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://fbb9d503857eab98f87465df0f02fef03083f30c1dbec82f319f41aaadae19b4\",\"dweb:/ipfs/QmTxDshRAMtoeM45YrTzQZdpmy4mt4scCNHjfZiWSvdETF\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xb03df8481a954604ad0c9125680893b2e3f7ff770fe470e38b89ac61b84e8072\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b34655953d18ba3a45b762fb6bdbb6549af69a27435e10ece178742bf70baf45\",\"dweb:/ipfs/QmcqjUoFLLMyx7dbwSHUnDBH6aphkVHXWQvQRRev5EAWEh\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x027b891937d20ccf213fdb9c31531574256de774bda99d3a70ecef6e1913ed2a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://087318b21c528119f649899f5b5580566dd8d7b0303d4904bd0e8580c3545f14\",\"dweb:/ipfs/Qmbn5Mj7aUn8hJuQ8VrQjjEXRsXyJKykgnjR9p4C3nfLtL\"]},\"@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol\":{\"keccak256\":\"0xf98cb1651a90d20ef77d8c1dd10d5fce4954e747603e5672a8292bd4368120dd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76b539a8edd558b010d1ff3e462c5d4edd039b790b91f31a5bce18957655cc9f\",\"dweb:/ipfs/QmSdJehhx1SwCWLSFFgHQTmUY2YwDTBQjTVjkmhXhA1srb\"]},\"@openzeppelin/contracts/token/ERC20/extensions/ERC20Capped.sol\":{\"keccak256\":\"0x861c86995be13aae31adcd5d3fedd5a9777e1882fa1bca0a86115f63bda07de1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ef9b51ad740e7dc808944270324e6905056d172d3e7803ba9149225e3620974b\",\"dweb:/ipfs/QmdUcsJN42BMVmdwLuERSdaGh1teUYKFYNFUso8sHogi1H\"]},\"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\":{\"keccak256\":\"0x83fe24f5c04a56091e50f4a345ff504c8bff658a76d4c43b16878c8f940c53b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d4c3df1a7ca104b633a7d81c6c6f5192367d150cd5a32cba81f7f27012729013\",\"dweb:/ipfs/QmSim72e3ZVsfgZt8UceCvbiSuMRHR6WDsiamqNzZahGSY\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x90565a39ae45c80f0468dc96c7b20d0afc3055f344c8203a0c9258239f350b9f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://26e8b38a7ac8e7b4463af00cf7fff1bf48ae9875765bf4f7751e100124d0bc8c\",\"dweb:/ipfs/QmWcsmkVr24xmmjfnBQZoemFniXjj3vwT78Cz6uqZW1Hux\"]},\"@openzeppelin/contracts/utils/Strings.sol\":{\"keccak256\":\"0x391d3ba97ab6856a16b225d6ee29617ad15ff00db70f3b4df1ab5ea33aa47c9d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d636ba90bbbeed04a1ea7fe9ec2466757e30fd38ba2ca173636dbf69a518735e\",\"dweb:/ipfs/QmQwCB2BHnEuYR22PYt9HkpbgeFDhq4rHmaYqAZbX3WRC7\"]},\"@openzeppelin/contracts/utils/introspection/ERC165.sol\":{\"keccak256\":\"0x5718c5df9bd67ac68a796961df938821bb5dc0cd4c6118d77e9145afb187409b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d10e1d9b26042424789246603906ad06143bf9a928f4e99de8b5e3bdc662f549\",\"dweb:/ipfs/Qmejonoaj5MLekPus229rJQHcC6E9dz2xorjHJR84fMfmn\"]},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0xa28007762d9da9db878dd421960c8cb9a10471f47ab5c1b3309bfe48e9e79ff4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://796ab6e88af7bf0e78def0f059310c903af6a312b565344e0ff524a0f26e81c6\",\"dweb:/ipfs/QmcsVgLgzWdor3UnAztUkXKNGcysm1MPneWksF72AvnwBx\"]},\"project:/contracts/DjangoApp.sol\":{\"keccak256\":\"0x1355496098501dffa795cf82d54e06373ad343c6b468c9d6c0ecbd2aa73799ce\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://8dad868a609b0d528a7a9c8ba8d7d0ef037510977e5d97049de0689ed4ecffcc\",\"dweb:/ipfs/QmT4Fe1ibSP2uurirUDpeZwktms79gFv8MzVcvMNFhEULT\"]},\"project:/contracts/TokenA.sol\":{\"keccak256\":\"0x476b398cba81d7784ee52923bd50a47ebdfd16f511b1aa818ab7c8e767bc9018\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://a6b1df11c65dfd8d5ef72fe6d58db5e51e7c863a93b9dd98787a458fd983d2af\",\"dweb:/ipfs/QmVu1bEQi6N5kC36xGcKXetnXzQZha78gfzbMRmwuDJmT5\"]},\"project:/contracts/TokenB.sol\":{\"keccak256\":\"0xc0269ed3eea52cf9552033de59cd3833c8765e0b7470177faf1193d4d1a40ec3\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://5ef304263270dc2def055d2ca8de918b60435b73811540dd2714ec07b5513199\",\"dweb:/ipfs/QmTr9h25NwURTXgwbFCpRMqPsEGmYChSPxDHaSQ7c1QmPw\"]},\"project:/contracts/TokenDjango.sol\":{\"keccak256\":\"0x0b63ee504d79326c9d446d52bbf8d7d83a39f12256d40c931fdaae72bb4585d6\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://3803fc04f98ed6a659a0bc2c632bbc55c1bd06912ae36b0e6a99d29fffd81f85\",\"dweb:/ipfs/QmbS5RTZsVfkVW8BRnkGnfFhvCEYKukmsomawZCYzCfWnr\"]}},\"version\":1}",
@@ -17923,12 +17930,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x6c2E0Ba6C45a573cfB2304a635F11aC31a5a237F",
-      "transactionHash": "0x38e77adfb51e1e5612ca159b092813b4d4aecf557d3fa92cca7acd4c11969348"
+      "address": "0x37b4779794DfE6b52403D70Aa5Dd492221614f24",
+      "transactionHash": "0xdfc8c94b060643cf6404200e6b67426c14a138c79ee089ad3944afd606b0ca16"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-16T18:20:20.400Z",
+  "updatedAt": "2021-11-22T13:23:35.857Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
