@@ -4,7 +4,7 @@ const TokenDjango = artifacts.require("TokenDjango");
 const DjangoApp = artifacts.require("DjangoApp");
 
 contract("DjangoApp", async accounts => {
-    it("faucet should distribute tokens", async function() {
+    it("should distribute tokens from faucet", async function() {
         const account = accounts[0];
 
         const tokenA = await TokenA.deployed();
@@ -26,7 +26,7 @@ contract("DjangoApp", async accounts => {
         assert.notEqual(account_ending_balance.toString(), 0, "user has 0 tokenA after faucet usage");
     });
 
-    it("swapper should update balances correctly", async function() {
+    it("should swap tokens and update balances correctly", async function() {
         const account = accounts[0];
 
         const tokenA = await TokenA.deployed();
@@ -63,7 +63,7 @@ contract("DjangoApp", async accounts => {
         );
     });
 
-    it("deposit should update balances correctly", async function() {
+    it("should deposit TKB in the contract", async function() {
         const account = accounts[0];
 
         const tokenB = await TokenB.deployed();
@@ -98,7 +98,7 @@ contract("DjangoApp", async accounts => {
         );
     });
     
-    it("withdraw should update balances correctly", async function() {
+    it("should withdraw TKB from the contract", async function() {
         const account = accounts[0];
 
         const tokenB = await TokenB.deployed();
@@ -144,7 +144,7 @@ contract("DjangoApp", async accounts => {
         assert.equal(account_ending_deposited.toString(), 0, "amount of deposited tokens not right")
     });
     
-    it("claim should distribute tokens correctly", async function() {
+    it("should mint DJG to user", async function() {
         const account = accounts[0];
 
         const tokenDjango = await TokenDjango.deployed();

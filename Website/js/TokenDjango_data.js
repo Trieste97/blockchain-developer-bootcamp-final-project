@@ -1,4 +1,4 @@
-const TokenDjango_address = "0x0f4F87D7266863109555CBd1e908fbf2E0b18D6b";
+const TokenDjango_address = "0xb69d592721696e918F12e449B4C31cBB3e6Da3f4";
 const TokenDjango_abi = [
     {
         "inputs": [],
