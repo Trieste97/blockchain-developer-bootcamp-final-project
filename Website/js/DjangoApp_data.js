@@ -1,4 +1,4 @@
-const DjangoApp_address = "0x2F6343F02FC11D4F585fA708E6E5be671B0829a2";
+const DjangoApp_address = "0x1b137a7e6cca54e79c40f09bdd42a0913ac82718";
 const DjangoApp_abi = [
     {
         "inputs": [

@@ -1,4 +1,4 @@
-const TokenA_address = "0x672bBC9942e6036edB864eeaCe3747570b38e394";
+const TokenA_address = "0x943257ce02df273920869767193c20156ce76897";
 const TokenA_abi = [
     {
         "inputs": [],
