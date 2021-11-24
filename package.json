@@ -5,5 +5,8 @@
   },
   "devDependencies": {
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
 }
