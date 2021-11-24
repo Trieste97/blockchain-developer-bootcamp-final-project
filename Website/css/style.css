@@ -139,3 +139,8 @@ input {
     margin-right:auto;
     margin-left:auto;
 }
+button:disabled, button[disabled] {
+    cursor: auto;
+    background-color: #cccccc;
+    color: #666666;
+}

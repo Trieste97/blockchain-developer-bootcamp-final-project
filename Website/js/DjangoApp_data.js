@@ -1,4 +1,4 @@
-const DjangoApp_address = "0xb99D680943196cB1908C6e6806F3c005A02af8Df";
+const DjangoApp_address = "0x2F6343F02FC11D4F585fA708E6E5be671B0829a2";
 const DjangoApp_abi = [
     {
         "inputs": [
@@ -153,8 +153,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -167,8 +166,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -181,8 +179,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -195,8 +192,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -216,8 +212,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -230,8 +225,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [],
@@ -244,8 +238,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -272,6 +265,25 @@ const DjangoApp_abi = [
         "name": "unpause",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account_",
+                "type": "address"
+            }
+        ],
+        "name": "lastTimeUsedFaucet",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -324,8 +336,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [
@@ -344,8 +355,7 @@ const DjangoApp_abi = [
             }
         ],
         "stateMutability": "view",
-        "type": "function",
-        "constant": true
+        "type": "function"
     },
     {
         "inputs": [

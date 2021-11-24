@@ -84,6 +84,13 @@ contract DjangoApp is ReentrancyGuard, Pausable, Ownable {
         _unpause();
     }
 
+    /// @dev Getter function for lastTimeFaucet mapping
+    /// @param account_ The address of the user
+    /// @return Time in seconds since epoch of last time the user used the faucet
+    function lastTimeUsedFaucet(address account_) external view returns (uint) {
+        return lastTimeFaucet[account_];
+    }
+
     /// @notice Mints faucet tokens (TKA) to the requester (msg.sender) if it's not in cooldown (24 hours)
     /// @dev TKA is an openzeppelin ERC20Capped, so after its limit has been reached, the faucet won't give 
     /// tokens anymore; The function uses block.timestamp for the time difference
@@ -174,10 +181,11 @@ contract DjangoApp is ReentrancyGuard, Pausable, Ownable {
         emit Withdraw(msg.sender, amount_);
     }
 
-    /// @notice The user claims all the DJG earned until now
+    /// @notice The user claims all the DJG earned until now (if any)
     /// @dev The DJG are minted directly to the user
     function claim() external whenNotPaused {
         uint djangoEarned = this.getDjangoEarned(msg.sender);
+        require(djangoEarned > 0, "No DJG to claim");
 
         updateDjangoEarned(msg.sender, 0);
 
