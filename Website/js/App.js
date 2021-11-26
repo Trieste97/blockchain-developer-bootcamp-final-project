@@ -42,9 +42,6 @@ App = {
 
     // events binding to js functions
     bindEvents: function () {
-        window.ethereum.on('accountsChanged', function(account) {
-            location.reload();
-        });
         window.ethereum.on('chainChanged', function(chainID) {
             let newChainID = App.web3.utils.hexToNumberString(chainID);
             console.log("Changed chain ID to :" + newChainID);
@@ -144,12 +141,13 @@ App = {
         try {
             // check if 24h passed since last usage
             let secondsFromEpoch = Math.round(Date.now() / 1000);
-            let secondsLastFaucet = App.user.lastTimeFaucet;
-            if (secondsFromEpoch >= secondsLastFaucet + (24 * 60 * 60)) {
+            let secondsLastFaucet = parseInt(App.user.lastTimeFaucet);
+            let secondsLeftForFaucet = (secondsLastFaucet + (24 * 60 * 60)) - secondsFromEpoch;
+            if (secondsLeftForFaucet < 0) {
                 await App.contracts.DjangoApp.methods.useFaucet().send({from: ethereum.selectedAddress});
                 await App.loadBalances();
             } else {
-                alert("Faucet is still in cooldown for this account");
+                alert("Faucet is still in cooldown for this account, resetting in " + secondsLastFaucet + " seconds");
             }
         } catch(error) {
             console.log(error);
