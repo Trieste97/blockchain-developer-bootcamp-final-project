@@ -1,0 +1,5 @@
+Network: Ropsten
+TokenA address: 0x943257ce02df273920869767193c20156ce76897
+TokenB address: 0x6c373da70baa4ac5684f5913e66c7d238faf1be1
+TokenDjango address: 0x6f2dcca4dfc04c79e87e0ad0c6783ac85379ed81
+DjangoApp address: 0x1b137a7e6cca54e79c40f09bdd42a0913ac82718
