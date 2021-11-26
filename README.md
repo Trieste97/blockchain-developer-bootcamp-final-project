@@ -1,35 +1,40 @@
-# blockchain-developer-bootcamp-final-project
-Final project for the Consensys blockchain developer bootcamp
+# DjangoApp - A small DeFi environment simulator
+A live Ropsten version of this project is live at https://djangoapp.ddns.net
 
-# Base Idea
-It should be a simple DApp that lets users deposit certain tokens to earn DApp token rewards periodically.
-The DApp contains three main sections:
-  1. Faucet: where the user can request tokens;
-  2. Swapper: where the user can transform the faucet tokens into deposit tokens;
-  3. Deposit: where the user can deposit tokens obtained before, earning periodically the DApp tokens;
+## The project description and usage
 
-A simple use case (let's call the user Bob):
-  1. Bob uses the faucet and gets 100 tokenA;
-  2. He wants to farm the native token of the DApp (let's call it Django);
-  3. Bob needs the deposit tokens, so he swaps his tokenA for some deposit tokens (let's call them tokenB) in the swapper section;
-  4. Therefore he puts all his tokenB in the deposit section (Bob will now periodically and passively earn Django);
-  5. Some time later Bob claims the rewards earned until then, so now he possesses some Django;
+### Description
+This DApp uses three different ERC20 tokens: TKA, TKB and DJG.  
+The base idea is very simple: let users freely earn the DApp native tokens: DJGs.  
+Djangos can only be obtained by depositing TKBs. Once a user deposits some TKBs, he will get 1 DJG every 100 TKBs deposited and every block mined since the deposit block. Of course, if the user withdraws all the TKBs, it won't generate DJGs anymore.  
+The user can have TKBs by swapping them for TKAs in the DApp Swapper section. The two tokens are always swapped with a 1:1 ratio.  
+To get some TKAs, the user needs to use the faucet, where he can get 100 TKAs every 24 hours.
 
-# 1. Faucet
-In the faucet section, it's possible to obtain the faucet ERC-20 token: tokenA (temporary names). A transaction will be sent to the faucet smart contract that will mint and give the tokens to the requester. It will have a cooldown time of 1 day before it can be used again from the same address.
-The faucet token policy is static: there's a max supply set to mint, only from the faucet. Once reached the max supply, the faucet won't give tokens anymore.
+### Simple use case
+1. A user (let's call her Alice) wants to get some DJG;
+2. Alice connects her wallet to the website: she has 0 TKA, 0 TKB and 0 DJG;
+3. She uses the faucet for the first time and she gets 100 TKA;
+4. She needs to swap her TKAs for TKBs, so she approves the TKA and she swaps all of them;
+5. Alice knows that she needs to deposit her TKBs, so she approves them and then she deposits all of them;
+6. Having deposited 100 TKB, she is now earning 1 DJG every block mined (approximately every 13 seconds);
+7. After some time, she decides to claim her DJG earned (let's suppose after 100 blocks) and she gets 100 DJG;
 
-
-# 2. Swapper
-In the swapper section there are two possibilities:
-- swapping faucet tokens (tokenA) for deposit tokens (tokenB): the contract will take the faucet tokens and mint the same amount of tokenB;
-- swapping deposit tokens (tokenB) for the same amount of tokenA: the contract will burn the amount of tokenB and give back the same amount of tokenA;
-In both cases a transaction is required from the user. Example: Bob has 100 tokenA and he swaps them for 100 tokenB.
+### Screen cast
++ TODO url to screen cast
 
 
-# 3. Deposit
-The deposit section allows giving tokenB to the contract to earn Django as rewards. The idea is to reward a total of 1 Django (inflationary token) every 100 tokenB deposited, per block minted since the deposit. If there're no deposits in a certain period of time, no Django are minted in that period. Example:
-  - Alice deposits 100 tokenB, at block 100;
-  - Bob deposits 100 tokenB, at block 200;
-  - Alice withdraws all the tokens, at block 300. She earned a total of 200 Django that she can claim whenever she wants;
-This section also allow users to claim the Django earned until then.
+## The technical part
+
+### How to run it locally
+
+#### Requirements
++ TODO tutorial on how to install it and get it to work
+
+#### Installation
++ TODO tutorial on how to install it and get it to work
+
+#### Running
++ TODO tutorial on how to install it and get it to work
+
+### Directory structure
++ TODO describe directory file and structure
