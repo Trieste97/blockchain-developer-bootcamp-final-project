@@ -28,13 +28,29 @@ To get some TKAs, the user needs to use the faucet, where he can get 100 TKAs ev
 ### How to run it locally
 
 #### Requirements
-+ TODO tutorial on how to install it and get it to work
++ NodeJS >= v10.19.0
++ npm >= v6.14.4
++ Ganache >= v2.6.0
++ Truffle >= v5.4.22
+
+Minor versions could also work, the ones displayed are the one which the tests were done.
 
 #### Installation
-+ TODO tutorial on how to install it and get it to work
-
-#### Running
-+ TODO tutorial on how to install it and get it to work
+1. Download the repository to your machine;
+2. Move to the root directory and install the dependencies with `npm install`;
+3. Move to the DjangoApp directory and compile the contracts with `truffle compile`;  
+a. If you want you can test the contracts with `truffle test`;
+5. Run ganache and start a session;
+6. Move to the DjangoApp directory and migrate the contracts to the ganache blockchain with `truffle migrate`;
+7. Move to the Website/js directory. There are 4 js files that contain the contracts information. In the first line of each, you need to substitute the contract address string with the ones the previous command gave in output;
+8. Move to the Website directory and run a local webserver (you can do it with python, with `python3 -m http.server` and access it from browser on port 8000);
+9. Enjoy the application!
 
 ### Directory structure
-+ TODO describe directory file and structure
++ DjangoApp: where all the backend is located;
+  + contracts: contains the solidity contracts developed;
+  + migrations: contains the files needed for the migration to ganache/other networks;
+  + test: contains the test files;
++ Website: where all the frontend is located;
+  + js: javascript files;
+  + css: css files for the website style;
