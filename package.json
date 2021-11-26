@@ -1,12 +1,7 @@
 {
-  "scripts": {
-    "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "lite-server": "^2.6.1"
-  },
   "dependencies": {
+    "@openzeppelin": "^4.3.2",
+    "@truffle/hdwallet-provider": "^1.5.1",
     "dotenv": "^10.0.0"
   }
 }

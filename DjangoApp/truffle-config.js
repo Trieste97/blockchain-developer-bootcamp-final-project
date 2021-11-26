@@ -18,12 +18,11 @@
  *
  */
 
-const HDWalletProvider = require('truffle-hdwallet-provider');
-
-//const fs = require('fs');
-const dotenv = require('dotenv');
-dotenv.config();
-const mnemonic = process.env.SEEDPHRASE.toString().trim();
+// Next 4 lines are used for testnet deployments (not local)
+//const HDWalletProvider = require('@truffle/hdwallet-provider');
+//const dotenv = require('dotenv');
+//dotenv.config();
+//const mnemonic = process.env.SEEDPHRASE.toString().trim();
 
 module.exports = {
   /**
@@ -116,11 +115,13 @@ module.exports = {
     // }
   // }
 
-  // this part is for automatic verification on etherscan ropsten
+  // this part is for automatic verification on etherscan ropsten, don't unccoment
+  /*
   plugins: [
     'truffle-plugin-verify'
   ],
   api_keys: {
     etherscan: process.env.ETHERSCAN_APIKEY.toString().trim()
   }
+  */
 };
