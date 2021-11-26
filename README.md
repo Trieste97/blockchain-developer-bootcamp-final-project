@@ -20,7 +20,7 @@ To get some TKAs, the user needs to use the faucet, where he can get 100 TKAs ev
 7. After some time, she decides to claim her DJG earned (let's suppose after 100 blocks) and she gets 100 DJG;
 
 ### Screen cast
-+ TODO url to screen cast
+https://youtu.be/HlbBR8-Vf44
 
 
 ## The technical part
