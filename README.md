@@ -1,5 +1,5 @@
 # DjangoApp - A small DeFi environment simulator
-A live Ropsten version of this project is live at https://djangoapp.ddns.net
+A live Ropsten version of this project is live at https://djangoapp.ddns.net  
 Public Ethereum address for NFT certification: 0xf4Bbaf63Cd4ccc9a99A02305f829f757AC8Bc270
 
 ## The project description and usage
