@@ -147,7 +147,7 @@ App = {
                 await App.contracts.DjangoApp.methods.useFaucet().send({from: ethereum.selectedAddress});
                 await App.loadBalances();
             } else {
-                alert("Faucet is still in cooldown for this account, resetting in " + secondsLastFaucet + " seconds");
+                alert("Faucet is still in cooldown for this account, resetting in " + Math.round(secondsLeftForFaucet/3600) + " hours");
             }
         } catch(error) {
             console.log(error);
